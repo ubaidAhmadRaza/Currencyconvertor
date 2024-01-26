@@ -32,7 +32,7 @@ This Currency Converter application allows users to convert between different cu
 2. Navigate to the project directory:
 
    ```bash
-   cd currency-converter-app
+   cd Currencyconvertor
    ```
 
 3. Install dependencies:
@@ -44,7 +44,7 @@ This Currency Converter application allows users to convert between different cu
 4. Run the application:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 
