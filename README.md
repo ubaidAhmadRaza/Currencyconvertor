@@ -26,7 +26,7 @@ This Currency Converter application allows users to convert between different cu
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ubaidAhmadRaza/Currencyconvertor.git
    ```
 
 2. Navigate to the project directory:
