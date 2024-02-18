@@ -64,7 +64,7 @@ function App() {
             <div className=" mb-1">
               <Input
                 label="From"
-                amount={amount.toFixed(2)}
+                amount={amount}
                 currencyoption={keys}
                 onAmountChange={(amount) => setamount(amount)}
                 selectCurrency={from}
@@ -83,7 +83,7 @@ function App() {
             <div className=" mt-1 justify-center mb-4">
               <Input
                 label="To"
-                amount={converted.toFixed(2)}
+                amount={converted}
                 currencyoption={keys}
                 onamountchange={(to) => setto(to)}
                 selectCurrency={to}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useId } from 'react'
 
 import useCurrencyInfo from '../Hooks/currency';
 
@@ -15,20 +15,23 @@ function Input({
     className = "",
     
 }) {
+  const amountInputId = useId()
    
     return (
         <div className={`bg-white dark:bg-gray-800 p-3 w-full rounded-lg text-sm flex `}>
           <div className="w-full">
-            <label className="text-black/80 dark:text-white w-full mb-2 inline-block">
+            <label htmlFor={amountInputId} className="text-black/80 dark:text-white w-full mb-2 inline-block">
               {label}
             </label>
             <input
-              value={amount}
+            id={amountInputId}
+              value={Math.floor(amount)}
               onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
               className="outline-none w-full text-black/80 dark:text-white bg-transparent py-1.5"
               type="number"
               placeholder="Amount"
               disabled={amountDisable}
+              
             />
           </div>
           <div className="flex flex-wrap text-right">
@@ -38,6 +41,7 @@ function Input({
               value={selectCurrency}
               disabled={currencyDisable}
               onChange={(e) => oncurrenychange && oncurrenychange(e.target.value)}
+              
             >
               {currencyoption.map((currency) => (
                 <option key={currency} value={currency}>
