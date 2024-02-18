@@ -10,7 +10,7 @@ import ThemeBtn from './Components/Themebutton';
 function App() {
   const [from, setfrom] = useState('usd')
   const [to, setto] = useState('pkr')
-  const [amount, setamount] = useState(0)
+  const [amount, setamount] = useState(1)
   const info =useCurrencyInfo(from)
   const keys=Object.keys(info)
   const [converted, setconverted] = useState(0)
@@ -23,10 +23,15 @@ function App() {
 
     setthememode("dark")
   }
+  const convert = () => {
+    setconverted(amount * info[to])
+  }
+
 
   useEffect(() => {
     document.querySelector('html').classList.remove("light", "dark")
     document.querySelector('html').classList.add(thememode)
+    
   }, [thememode])
   
 
@@ -37,13 +42,10 @@ function App() {
     setamount(converted)
  
   }
-  const convert = () => {
-    setconverted(amount * info[to])
-  }
 
   return (<ThemeProvider value={{thememode, lighttheme, darktheme}}>
     <div
-      className="h-screen w-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat dark:bg-gray-800"
+      className="h-screen w-screen grid  mx-auto max-h-screen   justify-center  items-center bg-cover bg-no-repeat dark:bg-gray-800"
       style={{
         backgroundImage: `url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg')`,
       }}
@@ -51,8 +53,8 @@ function App() {
     
                  
               
-      <div className="w-full">
-        <div className="w-4/12 mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30 dark:bg-gray-700">
+      <div className="   sm:col-span-4  justify-center my-4 px-7 mx-auto">
+        <div className=" mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm justify-center bg-white/30 dark:bg-gray-700">
         <ThemeBtn />
          <form
             onSubmit={(e) => {
@@ -60,12 +62,12 @@ function App() {
               convert();
             }}
           >
-            <div className="w-full mb-1">
+            <div className=" mb-1">
               <Input
                 label="From"
-                amount={amount.toFixed(3)}
+                amount={amount.toFixed(2)}
                 currencyoption={keys}
-                onamountchange={(amount) => setamount(amount)}
+                onAmountChange={(amount) => setamount(amount)}
                 selectCurrency={from}
                 oncurrenychange={(currency) => setfrom(currency)}
               />
@@ -79,10 +81,10 @@ function App() {
                 swap
               </button>
             </div>
-            <div className="w-full mt-1 mb-4">
+            <div className=" mt-1 justify-center mb-4">
               <Input
                 label="To"
-                amount={converted.toFixed(3)}
+                amount={converted.toFixed(2)}
                 currencyoption={keys}
                 onamountchange={(to) => setto(to)}
                 selectCurrency={to}
@@ -91,7 +93,7 @@ function App() {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg dark:bg-gray-600 dark:text-gray-200"
+              className=" bg-blue-600 text-white px-4 py-3 rounded-lg dark:bg-gray-600 dark:text-gray-200"
             >
               Convert
             </button>

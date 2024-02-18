@@ -6,7 +6,7 @@ import useCurrencyInfo from '../Hooks/currency';
 function Input({
     label,
     amount,
-    onamountchange,
+    onAmountChange,
     oncurrenychange,
     currencyoption=[],
     selectCurrency = "usd",
@@ -17,14 +17,14 @@ function Input({
 }) {
    
     return (
-        <div className={`bg-white dark:bg-gray-800 p-3 w-full rounded-lg text-sm flex`}>
+        <div className={`bg-white dark:bg-gray-800 p-3 w-full rounded-lg text-sm flex `}>
           <div className="w-full">
             <label className="text-black/80 dark:text-white w-full mb-2 inline-block">
               {label}
             </label>
             <input
               value={amount}
-              onChange={(e) => onamountchange && onamountchange(Number(e.target.value))}
+              onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
               className="outline-none w-full text-black/80 dark:text-white bg-transparent py-1.5"
               type="number"
               placeholder="Amount"
@@ -37,7 +37,7 @@ function Input({
               className="rounded-lg px-1 py-1 text-black/80 dark:text-white bg-gray-100 dark:bg-gray-700 cursor-pointer outline-none"
               value={selectCurrency}
               disabled={currencyDisable}
-              onChange={(e) => (oncurrenychange && oncurrenychange(e.target.value))}
+              onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
             >
               {currencyoption.map((currency) => (
                 <option key={currency} value={currency}>
