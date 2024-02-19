@@ -85,7 +85,7 @@ function App() {
                 label="To"
                 amount={converted}
                 currencyoption={keys}
-                onamountchange={(to) => setto(to)}
+                onAmountChange={(amount) => setconverted(amount)}
                 selectCurrency={to}
                 oncurrenychange={(currency) => setto(currency)}
               />

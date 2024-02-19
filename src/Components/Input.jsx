@@ -25,7 +25,7 @@ function Input({
             </label>
             <input
             id={amountInputId}
-              value={Math.floor(amount)}
+              value={amount}
               onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))}
               className="outline-none w-full text-black/80 dark:text-white bg-transparent py-1.5"
               type="number"
