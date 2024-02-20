@@ -10,7 +10,8 @@ function App() {
   const [from, setfrom] = useState('usd')
   const [to, setto] = useState('pkr')
   const [amount, setamount] = useState(1)
-  const info =useCurrencyInfo(from)
+  const [key, setKey] = useState(Date.now()); // Generate a new key on each render
+  const info = useCurrencyInfo(from, key);
   const keys=Object.keys(info)
   const [converted, setconverted] = useState(0)
   const [thememode, setthememode] = useState("light")
