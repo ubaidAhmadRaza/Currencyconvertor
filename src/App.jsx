@@ -13,6 +13,7 @@ function App() {
   const [key, setKey] = useState(Date.now()); // Generate a new key on each render
   const info = useCurrencyInfo(from, key);
   const keys=Object.keys(info)
+  console.log(keys,info)
   const [converted, setconverted] = useState(0)
   const [thememode, setthememode] = useState("light")
   const lighttheme=()=>{
